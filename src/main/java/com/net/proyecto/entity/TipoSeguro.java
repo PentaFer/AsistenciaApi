@@ -21,6 +21,31 @@ public class TipoSeguro {
 	private String nombre;
 	
 	private String descripcion;
+
+	public Integer getId_tipo_seguro() {
+		return id_tipo_seguro;
+	}
+
+	public void setId_tipo_seguro(Integer id_tipo_seguro) {
+		this.id_tipo_seguro = id_tipo_seguro;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
 	
 	
 

@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.net.proyecto.entity.EstadoCivil;
 import com.net.proyecto.entity.Persona;
+import com.net.proyecto.entity.TipoSeguro;
+import com.net.proyecto.service.EstadoCivilService;
 import com.net.proyecto.service.PersonaService;
+import com.net.proyecto.service.TipoSeguroService;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -27,6 +31,14 @@ public class PersonaController {
 	
 	@Autowired
 	private PersonaService service;
+	
+	
+	@Autowired
+	private TipoSeguroService serviceSeguro;
+	
+	
+	@Autowired
+	private EstadoCivilService serviceEstado;
 	
 	
 	@GetMapping
@@ -98,5 +110,20 @@ public class PersonaController {
 	    }
 	}
 	
+	
+	@GetMapping("/seguros")
+	@ResponseBody
+	public List<TipoSeguro> listaSeguros(){
+		List<TipoSeguro> listaSalida = serviceSeguro.listaTipoSeguro();
+		return listaSalida;
+	}
+	
+	
+	@GetMapping("/estado")
+	@ResponseBody
+	public List<EstadoCivil> listaEstados(){
+		List<EstadoCivil> listaSalida = serviceEstado.listaEstadoCivil();
+		return listaSalida;
+	}
 
 }

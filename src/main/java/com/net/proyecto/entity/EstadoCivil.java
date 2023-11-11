@@ -22,5 +22,32 @@ public class EstadoCivil {
 	private String nombre;
 	
 	private String descripcion;
+
+	public Integer getId_estado_civil() {
+		return id_estado_civil;
+	}
+
+	public void setId_estado_civil(Integer id_estado_civil) {
+		this.id_estado_civil = id_estado_civil;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	
+	
 	
 }
