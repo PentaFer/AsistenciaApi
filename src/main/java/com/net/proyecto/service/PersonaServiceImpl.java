@@ -1,6 +1,7 @@
 package com.net.proyecto.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,13 @@ public class PersonaServiceImpl implements PersonaService {
 	public void eliminarPersona(int id) {
 		repository.deleteById(id);
 	}
+
+	@Override
+	public Optional<Persona> buscarPersona(int id) {
+		return repository.findById(id);
+	}
+
+
+
 
 }
