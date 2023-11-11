@@ -2,9 +2,11 @@ package com.net.proyecto.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -84,9 +86,16 @@ public class PersonaController {
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	public Optional<Persona> listaPorId(@PathVariable("id") int idPersona ){
-		Optional<Persona> listaSalida = service.buscarPersona(idPersona);
-		return listaSalida;
+	public ResponseEntity<Object> listaPorId(@PathVariable("id") int idPersona) {
+	    Optional<Persona> listaSalida = service.buscarPersona(idPersona);
+
+	    if (listaSalida.isPresent()) {
+	        return ResponseEntity.ok(listaSalida.get());
+	    } else {
+	        Map<String, String> response = new HashMap<>();
+	        response.put("mensaje", "No se encontró ninguna persona con el ID proporcionado.");
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+	    }
 	}
 	
 
