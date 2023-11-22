@@ -40,6 +40,11 @@ public class PersonaServiceImpl implements PersonaService {
 		return repository.findById(id);
 	}
 
+	@Override
+	public Persona buscarPorDni(String dni) {
+		return repository.findByDNI(dni);
+	}
+
 
 
 

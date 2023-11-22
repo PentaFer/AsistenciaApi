@@ -125,5 +125,21 @@ public class PersonaController {
 		List<EstadoCivil> listaSalida = serviceEstado.listaEstadoCivil();
 		return listaSalida;
 	}
+	
+	
+	@GetMapping("/buscarPorDni/{dni}")
+	@ResponseBody
+	public ResponseEntity<Object> buscarPorDni(@PathVariable("dni") String dni) {
+	    Persona personaEncontrada = service.buscarPorDni(dni);
+
+	    if (personaEncontrada != null) {
+	        return ResponseEntity.ok(personaEncontrada);
+	    } else {
+	        Map<String, String> response = new HashMap<>();
+	        response.put("mensaje", "No se encontró ninguna persona con el DNI proporcionado.");
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+	    }
+	}
+
 
 }

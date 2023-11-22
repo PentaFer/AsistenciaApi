@@ -18,4 +18,6 @@ public interface PersonaService {
 	
 	public abstract Optional<Persona> buscarPersona(int id);
 
+	public abstract Persona buscarPorDni(String dni);
+	
 }
