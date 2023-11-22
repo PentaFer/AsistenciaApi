@@ -37,4 +37,56 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name = "id_rol")
 	private Rol rol;
+
+
+	public Integer getId_usuario() {
+		return id_usuario;
+	}
+
+
+	public void setId_usuario(Integer id_usuario) {
+		this.id_usuario = id_usuario;
+	}
+
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+
+	public Rol getRol() {
+		return rol;
+	}
+
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
+	}
+	
+	
 }
