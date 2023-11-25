@@ -26,9 +26,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public Usuario login(String usuario, String contrasena) {
-		
-		return repository.login(usuario, contrasena);
+	public Usuario login(String usuario, String contrasena) {	
+		// Aquí podrías implementar lógica de verificación segura de contraseñas
+        return repository.login(usuario, contrasena);
 	}
 
 	
