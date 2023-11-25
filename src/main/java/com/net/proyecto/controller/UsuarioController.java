@@ -49,20 +49,11 @@ public class UsuarioController {
 		return ResponseEntity.ok(mensaje);
 	}
 	
-	 @PostMapping("/iniciarSesion")
-	    @ResponseBody
-	    public ResponseEntity<?> iniciarSesion(@RequestBody Usuario usuario) {
-	        HashMap<String, String> mensaje = new HashMap<>();
-	        Usuario usuarioAutenticado = service.iniciarSesion(usuario.getUsuario(), usuario.getContrasena());
-
-	        if (usuarioAutenticado != null) {
-	            mensaje.put("mensaje", "Inicio de sesión exitoso para el usuario " + usuario.getUsuario());
-	            // Aquí podrías devolver información adicional sobre el usuario, como su ID o rol.
-	            return ResponseEntity.ok(mensaje);
-	        } else {
-	            mensaje.put("mensaje", "Credenciales incorrectas");
-	            return ResponseEntity.status(401).body(mensaje); // 401 Unauthorized
-	        }
-	    }
+	@GetMapping("/login")
+	  @ResponseBody
+	  public ResponseEntity<Usuario> login(@RequestBody Usuario obj) {
+	    obj = service.login(obj.getUsuario(), obj.getContrasena());
+	    return ResponseEntity.ok(obj);
+	  }
 
 }
