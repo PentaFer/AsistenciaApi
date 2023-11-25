@@ -11,6 +11,7 @@ public interface UsuarioService {
 	
 	public Usuario insertarUsuario (Usuario obj);
 	
-	
+	 // Nueva función para iniciar sesión
+	Usuario iniciarSesion(String usuario, String contrasena);
 
 }

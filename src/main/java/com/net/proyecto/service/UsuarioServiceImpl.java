@@ -25,4 +25,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		return repository.save(obj);
 	}
 
+	@Override
+	public Usuario iniciarSesion(String usuario, String contrasena) {
+		 // Implementa la lógica para validar las credenciales y devolver el usuario autenticado
+        return repository.findByUsuarioAndContrasena(usuario, contrasena);
+	}
+
 }
